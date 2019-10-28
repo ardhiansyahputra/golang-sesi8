@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="refresh" content="5">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Go learn net/http</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe src="https://giphy.com/embed/{{.Gif.Id}}" width="409" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        </div>
+        <div class="d-flex flex-column justify-content-center bd-highlight mb-3">
+            <div class="p-2 bd-highlight">{{.Gif.Name}}</div>
+            <div class="p-2 bd-highlight">Water height {{.Status.Water}} m.</div>
+            <div class="p-2 bd-highlight">Wind velocity {{.Status.Wind}} m/s.</div>
+        </div>
+
+        </br>
+
+        <ul>
+            <li {{if lt .Status.Water 6}}style="color:green"{{end}}>jika water dibawah 5 maka status aman</li>
+            <li {{if and (gt .Status.Water 5) (lt .Status.Water 9)}}style="color:orange"{{end}}>jika water antara 6 - 8 maka status siaga</li>
+            <li {{if gt .Status.Water 8}}style="color:red"{{end}}>jika water diatas 8 maka status bahaya</li>
+            <li {{if lt .Status.Wind 7}}style="color:green"{{end}}>jika wind dibawah 6 maka status aman</li>
+            <li {{if and (gt .Status.Wind 6) (lt .Status.Wind 16)}}style="color:orange"{{end}}>jika wind antara 7 - 15 maka status siaga</li>
+            <li {{if gt .Status.Wind 15}}style="color:red"{{end}}>jika wind diatas 15 maka status bahaya</li>
+        </ul>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
